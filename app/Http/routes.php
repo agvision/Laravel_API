@@ -26,14 +26,20 @@ Route::get('/', function () {
 
 Route::group(['prefix' => 'api'], function () {
 
-    Route::post('login',    'API\UsersController@login');
-    Route::post('register', 'API\UsersController@register');
-    Route::post('logout',   'API\UsersController@logout');
+    /**
+     * Authentication routes
+     */
+    Route::group(['prefix' => 'auth'], function() {
+    	Route::post('login',         'API\UsersController@login');
+    	Route::post('logout',        'API\UsersController@logout');
+    	Route::post('register',      'API\UsersController@register');
+    	Route::get('refresh-token',  'API\UsersController@refreshToken');
+    });
 
     /**
      * Authenticated routes
      */
-    Route::group(['middleware' => 'jwt.auth'], function() {
+    Route::group(['middleware' => ['jwt.auth']], function() {
     	Route::get('user', 'API\UsersController@user');
     });
 });

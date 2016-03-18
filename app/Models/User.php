@@ -89,4 +89,19 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
             # It means that token is already invalid.
         }
     }
+
+    /**
+     * Try to refresh received token.
+     * 
+     * @param \Request $request 
+     * @return string
+     */
+    public function refreshToken($request)
+    {
+        try {
+            return JWTAuth::refresh(JWTAuth::getToken());
+        } catch (Exception $e) {
+            throw new APIException("invalidToken", HttpResponse::HTTP_UNAUTHORIZED);
+        }
+    }
 }

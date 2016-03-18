@@ -53,9 +53,24 @@ class UsersController extends APIController
 		return $this->respond();
 	}
 
+	/**
+	 * Refresh an authentication token.
+	 * 
+	 * @param Request $request 
+	 * @return type
+	 */
+	public function refreshToken(Request $request)
+	{
+		$user  = new User;
+		
+		return $this->respond([
+			'token' => $user->refreshToken($request)
+		]);
+	}
+
 	public function user()
 	{
-		dd("aici");
+		echo "aici";
 	}
 } 
 
