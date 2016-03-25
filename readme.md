@@ -113,13 +113,14 @@ The errors are camelcase formatted:
 
 # Installation
 
-1. Clone our repository
+* Clone our repository
+
 ```
 #!python
 git clone https://mihaicracan@bitbucket.org/agvision/laravel_api.git
 ```
 
-1. Create the following tabel into your database
+* Create the following table into your database
 
 ```
 #!python
