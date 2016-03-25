@@ -119,7 +119,7 @@ The errors are camelcase formatted:
 git clone https://mihaicracan@bitbucket.org/agvision/laravel_api.git
 ```
 
-2. Create the following tabel into your database:
+2678. Create the following tabel into your database:
 
 ```
 #!python
@@ -137,5 +137,3 @@ CREATE TABLE `users` (
   UNIQUE KEY `users_email_unique` (`email`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 ```
- 
- 
