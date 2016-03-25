@@ -1,27 +1,75 @@
-# Laravel PHP Framework
+# API Starter Pack - Laravel PHP Framework
 
-[![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)
-[![Total Downloads](https://poser.pugx.org/laravel/framework/d/total.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Stable Version](https://poser.pugx.org/laravel/framework/v/stable.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Unstable Version](https://poser.pugx.org/laravel/framework/v/unstable.svg)](https://packagist.org/packages/laravel/framework)
-[![License](https://poser.pugx.org/laravel/framework/license.svg)](https://packagist.org/packages/laravel/framework)
+This project provides some basic functionalities for an API server and comes with built-in structure for different kinds of responses.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as authentication, routing, sessions, queueing, and caching.
+## Features
 
-Laravel is accessible, yet powerful, providing tools needed for large, robust applications. A superb inversion of control container, expressive migration system, and tightly integrated unit testing support give you the tools you need to build any application with which you are tasked.
+* Users Registration
+ 
+```
+#!python
 
-## Official Documentation
+POST request to:
+http://your.app/auth/registration
+```
 
-Documentation for the framework can be found on the [Laravel website](http://laravel.com/docs).
+* Users Authentication
+ 
+```
+#!python
 
-## Contributing
+POST request to:
+http://your.app/auth/login
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](http://laravel.com/docs/contributions).
+The response will provide an JWT token.
+```
 
-## Security Vulnerabilities
+* Token Invalidation
+ 
+```
+#!python
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
+POST request to:
+http://your.app/auth/logout
+```
 
-## License
+* Token Refresh
+ 
+```
+#!python
 
-The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
+GET request to:
+http://your.app/auth/refresh-token
+```
+
+* Custom Exception Handling
+ 
+```
+#!python
+
+Every time when an APIException will be thrown the PHP process will be stopped and the exception will be send as a response. The first paramether of APIException could be both array and string.
+
+Example:
+throw new APIException("invalidCredentials", HttpResponse::HTTP_UNAUTHORIZED);
+```
+
+* Automatic validation for Models
+ 
+```
+#!php
+
+Just describe in your model's method the rules for validation, and if any received data is invalid the Response containing errors will be automatically created and sent to the Client.
+
+
+Example for User->register():
+public function register($request)
+{   
+    $this->validate($request, [
+        'firstName' => 'required|max:255',
+        'lastName'  => 'required|max:255',
+        'email'     => 'required|email|unique:users,email|max:255',
+        'password'  => 'required|max:255'
+    ]);
+
+    // the rest of your logic
+```
