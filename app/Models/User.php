@@ -104,4 +104,15 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
             throw new APIException("invalidToken", HttpResponse::HTTP_UNAUTHORIZED);
         }
     }
+
+    /**
+     * Get authenticated user.
+     *
+     * @param  \Request  $request
+     * @return \App\Models\User
+     */
+    public static function getAuthenticated($request)
+    {
+        return JWTAuth::parseToken()->authenticate();
+    }
 }

@@ -68,9 +68,11 @@ class UsersController extends APIController
 		]);
 	}
 
-	public function user()
-	{
-		echo "aici";
+	public function user(Request $request)
+	{	
+		return $this->respond([
+			'user' => User::getAuthenticated($request)
+		]);
 	}
 } 
 
