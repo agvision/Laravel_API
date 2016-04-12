@@ -7,7 +7,6 @@ This project provides some basic functionalities for an API server and comes wit
 * Built-in Response Structure
  
 ```
-#!php
 For a success Response:
 
 {
@@ -18,7 +17,6 @@ For a success Response:
 
 
 ```
-#!php
 For an error Response:
 
 {
@@ -30,7 +28,6 @@ For an error Response:
 * Users Registration
  
 ```
-#!python
 
 POST request to:
 http://your.app/auth/registration
@@ -39,7 +36,6 @@ http://your.app/auth/registration
 * Users Authentication
  
 ```
-#!python
 
 POST request to:
 http://your.app/auth/login
@@ -50,7 +46,6 @@ The response will provide an JWT token.
 * Token Invalidation
  
 ```
-#!python
 
 POST request to:
 http://your.app/auth/logout
@@ -59,7 +54,6 @@ http://your.app/auth/logout
 * Token Refresh
  
 ```
-#!python
 
 GET request to:
 http://your.app/auth/refresh-token
@@ -68,7 +62,6 @@ http://your.app/auth/refresh-token
 * Custom Exception Handling
  
 ```
-#!python
 
 Every time when an APIException will be thrown the PHP process will be stopped and the exception will be send as a response. The first paramether of APIException could be both array and string.
 
@@ -86,7 +79,6 @@ Will send the following response with code 401:
 * Automatic validation for Models
  
 ```
-#!python
 
 Just describe in your model method the rules for validation, and if any received data is invalid the Response containing errors will be automatically created and sent to the Client.
 
@@ -116,14 +108,12 @@ The errors are camelcase formatted:
 * Clone our repository
 
 ```
-#!python
 git clone https://mihaicracan@bitbucket.org/agvision/laravel_api.git
 ```
 
 * Create the following table into your database
 
 ```
-#!python
 
 DROP TABLE IF EXISTS `users`;
 CREATE TABLE `users` (
