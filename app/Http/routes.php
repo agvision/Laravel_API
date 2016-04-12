@@ -27,6 +27,8 @@ Route::get('/', function () {
 
 Route::group(['prefix' => 'api'], function () {
 
+    Route::get('language', 'API\UsersController@getLanguage');
+
     /**
      * Authentication routes
      */

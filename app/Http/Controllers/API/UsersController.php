@@ -57,7 +57,6 @@ class UsersController extends APIController
 	 * Refresh an authentication token.
 	 * 
 	 * @param Request $request 
-	 * @return type
 	 */
 	public function refreshToken(Request $request)
 	{
@@ -65,6 +64,18 @@ class UsersController extends APIController
 		
 		return $this->respond([
 			'token' => $user->refreshToken($request)
+		]);
+	}
+
+	/**
+	 * Get language for current Request
+	 * 
+	 * @param Request $request 
+	 */
+	public function getLanguage(Request $request)
+	{
+		return $this->respond([
+			'language' => 'en'
 		]);
 	}
 
