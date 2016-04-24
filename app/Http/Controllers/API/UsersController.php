@@ -12,10 +12,10 @@ use Symfony\Component\HttpFoundation\Response as HttpResponse;
 class UsersController extends APIController
 {
 	/**
-	 * Create a new user account.
+	 * Create a new user account
 	 * 
-	 * @param \Request $request 
-	 * @return \Response
+	 * @param Request $request 
+	 * @return Response
 	 */
 	public function register(Request $request)
 	{	
@@ -26,9 +26,9 @@ class UsersController extends APIController
 	}
 
 	/**
-	 * Retrieve authentication token.
+	 * Retrieve authentication token
 	 * 
-	 * @param \Request $request 
+	 * @param Request $request 
 	 * @return type
 	 */
 	public function login(Request $request)
@@ -41,9 +41,9 @@ class UsersController extends APIController
 	}
 
 	/**
-	 * Invalidate current token.
+	 * Invalidate current token
 	 *
-	 * @param \Request $request
+	 * @param Request $request
 	 */
 	public function logout(Request $request)
 	{
@@ -54,13 +54,13 @@ class UsersController extends APIController
 	}
 
 	/**
-	 * Refresh an authentication token.
+	 * Refresh an authentication token
 	 * 
 	 * @param Request $request 
 	 */
 	public function refreshToken(Request $request)
 	{
-		$user  = new User;
+		$user = new User;
 		
 		return $this->respond([
 			'token' => $user->refreshToken($request)
@@ -77,6 +77,16 @@ class UsersController extends APIController
 		return $this->respond([
 			'language' => 'en'
 		]);
+	}
+
+	/**
+	 * Method protected by authentication for testing purpose
+	 * 
+	 * @param Request $request 
+	 */
+	public function getProtected(Request $request) 
+	{
+		return $this->respondAccepted();
 	}
 
 	public function user(Request $request)

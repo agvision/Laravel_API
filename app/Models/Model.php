@@ -17,21 +17,21 @@ class Model extends Eloquent
     use ValidatesRequests;
 
     /**
-     * Custom validation messages for API errors status.
+     * Custom validation messages for API errors status
      *
      * @var array
      */
     private $messages = array(
-        'required' => 'required :attribute',
-        'email'    => 'invalid :attribute',
-        'min'      => 'invalid :attribute',
-        'max'      => 'invalid :attribute',
-        'numeric'  => 'invalid :attribute',
+        'required' => 'required   :attribute',
+        'email'    => 'invalid    :attribute',
+        'min'      => 'tooShort   :attribute',
+        'max'      => 'tooLong    :attribute',
+        'numeric'  => 'notNumeric :attribute',
         'unique'   => 'duplicated :attribute',
     );
 
     /**
-     * Validate the given request with the given rules.
+     * Validate the given request with the given rules
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  array  $rules
@@ -50,7 +50,7 @@ class Model extends Eloquent
     }
 
     /**
-     * Format the validation errors to be returned.
+     * Format the validation errors to be returned
      *
      * @param  \Illuminate\Validation\Validator  $validator
      * @return array

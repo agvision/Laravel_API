@@ -33,8 +33,7 @@ class APIController extends Controller
 	}
 
 	/**
-	 * @param string $message 
-	 * @return \Response
+	 * @return Response
 	 */
 	public function respondCreated()
 	{
@@ -44,11 +43,21 @@ class APIController extends Controller
 	}
 
 	/**
+	 * @return Response
+	 */
+	public function respondAccepted()
+	{
+		$this->setStatusCode(HttpResponse::HTTP_ACCEPTED);
+
+		return $this->respond();
+	}
+
+	/**
 	 * Send a success response
 	 * 
 	 * @param array $data 
 	 * @param array $headers 
-	 * @return \Response
+	 * @return Response
 	 */
 	public function respond($data = [], $headers = [])
 	{

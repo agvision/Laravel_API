@@ -1,5 +1,6 @@
 <?php
 header('Access-Control-Allow-Origin: *');
+header('Access-Control-Allow-Headers: Authorization');
 header('Access-Control-Allow-Methods: POST, GET, PUT, DELETE');
 /*
 |--------------------------------------------------------------------------
@@ -43,7 +44,7 @@ Route::group(['prefix' => 'api'], function () {
      * Authenticated routes
      */
     Route::group(['middleware' => ['jwt.auth']], function() {
-    	Route::get('user', 'API\UsersController@user');
+    	Route::get('protected', 'API\UsersController@getProtected');
     });
 });
 

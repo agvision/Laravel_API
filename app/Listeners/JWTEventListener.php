@@ -27,7 +27,6 @@ class JWTEventListener {
      * Handle token absent event. 
      */ 
     public function onTokenInvalid() {
-
         throw new APIException("invalidToken", HttpResponse::HTTP_UNAUTHORIZED);
     }
 

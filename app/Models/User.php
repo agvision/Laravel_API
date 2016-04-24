@@ -16,7 +16,7 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
     use Authenticatable, CanResetPassword;
 
     /**
-     * The attributes that are mass assignable.
+     * The attributes that are mass assignable
      *
      * @var array
      */
@@ -25,7 +25,7 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
     ];
 
     /**
-     * The attributes excluded from the model's JSON form.
+     * The attributes excluded from the model's JSON form
      *
      * @var array
      */
@@ -34,9 +34,9 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
     ];
 
     /**
-     * Add a new user into database.
+     * Add a new user into database
      * 
-     * @param \Request $request
+     * @param Request $request
      */
     public function register($request)
     {   
@@ -58,7 +58,7 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
     /**
      * Generate a new authentication token
      * 
-     * @param \Request $request 
+     * @param Request $request 
      * @return string
      */
     public function login($request)
@@ -76,9 +76,9 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
     }
 
     /**
-     * Invalidate user token.
+     * Invalidate user token
      *
-     * @param  \Request  $request
+     * @param  Request  $request
      */
     public function logout($request)
     {
@@ -91,9 +91,9 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
     }
 
     /**
-     * Try to refresh received token.
+     * Try to refresh received token
      * 
-     * @param \Request $request 
+     * @param Request $request 
      * @return string
      */
     public function refreshToken($request)
@@ -106,10 +106,10 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
     }
 
     /**
-     * Get authenticated user.
+     * Get authenticated user
      *
-     * @param  \Request  $request
-     * @return \App\Models\User
+     * @param  Request  $request
+     * @return App\Models\User
      */
     public static function getAuthenticated($request)
     {
